@@ -1,91 +1,259 @@
-import Image from 'next/image'
+"use client"; // this is a client component
 import { Inter } from '@next/font/google'
-import styles from './page.module.css'
+import styles from './page.module.scss'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {useState} from "react";
+import Single from "../components/Single";
+import Multiple from "../components/Multiple";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const [currentTab,setCurrentTab] = useState("single");
+  const [single,setSingle] = useState("single");
+  const [multiple,setMultiple] = useState("multiple");
+ 
+  const handleTabChange = (e) =>{
+      setCurrentTab(e.target.id);
+  }
+
+  const pricingFeatureSingle = [
+    {
+        title: "Unlimited Authentication",
+        featureOne: "-",
+        featureTwo: "-",
+        featureThree: "-",
+        featureFour: "unlimited"
+    },
+    {
+        title: "Basic Attribute Mapping",
+        featureOne: "-",
+        featureTwo: "-",
+        featureThree: "-",
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "Autoredirect to IDP",
+        featureOne: "-",
+        featureTwo: "-",
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "Protect your complete site",
+        featureOne: "-",
+        featureTwo: "-",
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "SAML single logout",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "Custom SP Certificate",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "SSO Login Audit",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "Custom SP Certificate",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "SSO Login Audit",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "Custom SP Certificate",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "SSO Login Audit",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "Custom SP Certificate",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "SSO Login Audit",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "Custom SP Certificate",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+    {
+        title: "SSO Login Audit",
+        featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+        featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+    },
+
+
+]
+
+
+const pricingFeatureMultiple =  [
+  {
+      title: "Unlimited Authentication",
+      featureOne: "-",
+      featureTwo: "-",
+      featureThree: "-",
+      featureFour: "unlimited"
+  },
+  {
+      title: "Basic Attribute Mapping",
+      featureOne: "-",
+      featureTwo: "-",
+      featureThree: "-",
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "Autoredirect to IDP",
+      featureOne: "-",
+      featureTwo: "-",
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "Protect your complete site",
+      featureOne: "-",
+      featureTwo: "-",
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "SAML single logout",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "Custom SP Certificate",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "SSO Login Audit",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "Custom SP Certificate",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "SSO Login Audit",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "Custom SP Certificate",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "SSO Login Audit",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "Custom SP Certificate",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "SSO Login Audit",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "Custom SP Certificate",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+  {
+      title: "SSO Login Audit",
+      featureOne: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureTwo: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureThree: <FontAwesomeIcon icon={faCheck} color="#eb5424" />,
+      featureFour: <FontAwesomeIcon icon={faCheck} color="#eb5424" />
+  },
+
+
+]
+  
+  
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.jsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div className='container-fluid'>
+      <h2 className='text-center mt-5'>We've got a pricing plan that's perfect for you</h2>
+      <p className='text-center mt-3'>No Surprise Fees. No Credit Card Required</p>
+      <div className={`d-flex justify-content-center align-items-center ${styles.pricingTab}`}>
+        <div className={(currentTab === single) ? `${styles.active}` : ""} onClick={handleTabChange} id={single} >Single Site</div>
+        <div className={(currentTab === multiple) ? `${styles.active}` : ""} onClick={handleTabChange} id={multiple} >Multiple Site</div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
+      <div className='pricingSection d-flex justify-content-center align-items-center mt-5' style={{flexDirection : "column"}} >
+          {currentTab === "single" ? <Single pricingFeatures={pricingFeatureSingle}/> : <Multiple pricingFeatures={pricingFeatureMultiple}/>}
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+    </div>
   )
 }

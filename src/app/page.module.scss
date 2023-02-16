@@ -1,0 +1,100 @@
+// @use "sass:map";
+// // @import "./theme.scss";
+// @use "./theme.scss";
+
+// @import "./theme.scss";
+
+$color-grey: #6D6D6D;
+$color-orange: #eb5424;
+
+.active {
+  background-color: $color-grey;
+  padding: 5px 0.9rem;
+  border-radius: 3px;
+  color:#fff;
+
+  }
+
+.pricingTab {
+gap: 0 1.2rem;
+border: 1px solid $color-grey;
+width: 5rem + 10rem;
+margin: auto;
+cursor: pointer;
+padding:0.4rem 3px;
+border-radius: 4px;
+
+&.black {
+color: $color-grey;
+}
+
+&.orange {
+color: $color-orange;
+}
+}
+
+.upgrade {
+width: 100%;
+background-color: $color-orange;
+border-radius: 3px;
+padding: 5px;
+border: none;
+color:black;
+}
+
+.priceSubText {
+font-size: 0.7rem;
+}
+
+.comparePlansBtn {
+display: flex;
+justify-content: center;
+align-items: center;
+border: 1.5px solid $color-grey;
+padding: 5px 15px;
+cursor: pointer;
+}
+
+.thead {
+position: sticky;
+top: 0;
+z-index: 1;
+}
+
+.counter{
+  border : 2px solid $color-grey;
+  border-radius: 6px;
+  & > button {
+    border-bottom: none;
+    border-top: none;
+    background-color: #fff;
+    padding: 0.5rem;
+    font-weight: 800;
+  }
+  & button:hover{
+    cursor: pointer;
+  } 
+  & > .buttonLeft {
+    border-left: none;
+    border-right: 2px solid $color-grey;
+    border-radius: 6px 0 0 6px;
+  }
+  & > .buttonRight {
+    border-right: none;
+    border-left: 2px solid $color-grey;
+    border-radius: 0 6px 6px 0;
+  }
+
+}
+
+.scrollTable{
+  width: 97%;
+  overflow-x: scroll;
+}
+
+.cardWidth{
+  width: 15rem;
+}
+
+
+

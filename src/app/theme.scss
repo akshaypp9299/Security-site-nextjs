@@ -1,0 +1,20 @@
+@import '/node_modules/bootstrap/scss/bootstrap.scss';
+
+
+$color : "red"; 
+:export{
+    myColor:$color;
+}
+
+
+$theme-colors: (
+  'primary': #EB5424,
+  'secondary': #F7BC83,
+  'success': #1ce1ac,
+  'info': #ff7d50,
+  'warning': #ffbe0b,
+  'danger': #ff007f,
+  'light': #c0ccda,
+  'dark': #001738,
+);
+
